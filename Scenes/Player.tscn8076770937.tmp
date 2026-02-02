@@ -13,6 +13,9 @@ script = ExtResource("1_kyqiw")
 
 [node name="Movement" type="Node" parent="." unique_id=2011549041]
 script = ExtResource("1_rpqav")
+forward_impulse = 10.0
+drag_factor = 0.8
+rotation_force = 1.0
 
 [node name="Weapon" type="Node" parent="." unique_id=169295516]
 

@@ -8,11 +8,12 @@
 radius = 14.0
 
 [node name="Player" type="CharacterBody2D" unique_id=69791035]
-position = Vector2(111, 61)
+position = Vector2(105, 95)
 script = ExtResource("1_kyqiw")
 
 [node name="Movement" type="Node" parent="." unique_id=2011549041]
 script = ExtResource("1_rpqav")
+forward_impulse = 10.0
 
 [node name="Weapon" type="Node" parent="." unique_id=169295516]
 
