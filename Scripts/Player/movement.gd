@@ -15,10 +15,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_player_movement(delta)
 
-func _process(delta: float) -> void:
+#called every frame
+func _process(_delta: float) -> void:
 	_screen_wrap()
 
-#TODO ScreenWrapping
 #Gets player direction, checks for input and adds velocity 
 func _player_movement(delta: float):
 	#Checks for player input
