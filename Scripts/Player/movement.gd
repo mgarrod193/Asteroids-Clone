@@ -3,14 +3,17 @@ extends Node
 var player: CharacterBody2D
 
 #Variables for speed and rotation speed
-var max_speed := 300.0
-var forward_impulse := 200.0
-var drag := 150.0
-var rotation_force := 3
+var max_speed := 4000.0
+var forward_impulse := 10000.0
+var drag := 125.0
+var rotation_force := 90
 
 func _ready() -> void:
 	#Getting parent player node as CharacterBody2D to allow physics + velocity
 	player = get_parent() as CharacterBody2D
+	#Throws error if parent is not correct node type
+	if player == null:
+		push_error("Parent is not a CharacterBody2D")
 
 func _physics_process(delta: float) -> void:
 	_player_movement(delta)
@@ -25,25 +28,26 @@ func _player_movement(delta: float):
 	if (Input.is_action_pressed("forward")):
 		#Get players current angle and apply forward thrust
 		var direction = Vector2.UP.rotated(player.rotation)
-		player.velocity = direction * forward_impulse
+		player.velocity = direction * forward_impulse * delta
 	else:
 		# Reduce players velocity to zero by drag factor amount
 		player.velocity = player.velocity.move_toward(Vector2.ZERO, 
 												drag * delta)
 	
 	if (Input.is_action_pressed("rotate_right")):
-		player.rotation_degrees += rotation_force
+		player.rotation_degrees += rotation_force * delta
 		
 	if (Input.is_action_pressed("rotate_left")):
-		player.rotation_degrees -= rotation_force
+		player.rotation_degrees -= rotation_force * delta
 	
 	#Cap the players max speed
 	player.velocity = player.velocity.limit_length(max_speed)
 	
 	player.move_and_slide()
 
-#Wraps the screen
+# Gets visible screen size allows player to screen wrap
 func _screen_wrap():
-	player.position.x = wrapf(player.position.x, 0, player.screen_size.x)
-	player.position.y = wrapf(player.position.y, 0, player.screen_size.y)
+	var screen_size = get_viewport().get_visible_rect().size
+	player.position.x = wrapf(player.position.x, 0, screen_size.x)
+	player.position.y = wrapf(player.position.y, 0, screen_size.y)
 	

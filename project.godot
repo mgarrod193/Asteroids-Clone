@@ -19,6 +19,15 @@ config/icon="res://icon.svg"
 window/size/viewport_width=512
 window/size/viewport_height=480
 
+[file_customization]
+
+folder_colors={
+"res://Audio/": "pink",
+"res://Scenes/": "green",
+"res://Scripts/": "blue",
+"res://Sprites/": "yellow"
+}
+
 [input]
 
 forward={
