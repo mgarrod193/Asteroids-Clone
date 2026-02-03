@@ -5,7 +5,7 @@ var player: CharacterBody2D
 #Variables for speed and rotation speed
 var max_speed := 300.0
 var forward_impulse := 200.0
-var drag := 50.0
+var drag := 150.0
 var rotation_force := 3
 
 func _ready() -> void:
@@ -14,6 +14,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_player_movement(delta)
+
+func _process(delta: float) -> void:
+	_screen_wrap()
 
 #TODO ScreenWrapping
 #Gets player direction, checks for input and adds velocity 
@@ -38,3 +41,9 @@ func _player_movement(delta: float):
 	player.velocity = player.velocity.limit_length(max_speed)
 	
 	player.move_and_slide()
+
+#Wraps the screen
+func _screen_wrap():
+	player.position.x = wrapf(player.position.x, 0, player.screen_size.x)
+	player.position.y = wrapf(player.position.y, 0, player.screen_size.y)
+	
