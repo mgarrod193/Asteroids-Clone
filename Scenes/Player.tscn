@@ -2,19 +2,25 @@
 
 [ext_resource type="Script" uid="uid://cmjlsudmv42mr" path="res://Scripts/Player/player.gd" id="1_kyqiw"]
 [ext_resource type="Script" uid="uid://bbiwums7gkik1" path="res://Scripts/Player/movement.gd" id="1_rpqav"]
+[ext_resource type="Script" uid="uid://xng5toel4uge" path="res://Scripts/Player/weapon.gd" id="3_dewec"]
 [ext_resource type="Texture2D" uid="uid://6p12plvnubh7" path="res://Sprites/Asteroidplaceholderplayer.png" id="3_gntrk"]
+[ext_resource type="PackedScene" uid="uid://cg1p3aarjgnjd" path="res://Scenes/Projectile.tscn" id="4_5ixxa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
 radius = 14.0
 
 [node name="Player" type="CharacterBody2D" unique_id=69791035]
-position = Vector2(188, 116)
 script = ExtResource("1_kyqiw")
 
 [node name="Movement" type="Node" parent="." unique_id=2011549041]
 script = ExtResource("1_rpqav")
 
-[node name="Weapon" type="Node" parent="." unique_id=169295516]
+[node name="Weapon" type="Node" parent="." unique_id=169295516 groups=["bullets"]]
+script = ExtResource("3_dewec")
+bullet_scene = ExtResource("4_5ixxa")
+
+[node name="BulletSpawnPos" type="Marker2D" parent="Weapon" unique_id=261825313]
+position = Vector2(0, -13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=834658857]
 position = Vector2(0, 5)

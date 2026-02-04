@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://cg1p3aarjgnjd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bu3cc"]
+[ext_resource type="Texture2D" uid="uid://kkiikala5umq" path="res://Sprites/bulletplaceholder.png" id="1_0pm0o"]
 
-[node name="Torpedo" type="Area2D" unique_id=1825135199]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bu3cc"]
+radius = 4.0
+
+[node name="Projectile" type="Area2D" unique_id=1825135199]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1241451012]
+texture = ExtResource("1_0pm0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=396401192]
 shape = SubResource("CircleShape2D_bu3cc")
