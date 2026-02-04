@@ -8,8 +8,8 @@ var forward_impulse := 10000.0
 var drag := 125.0
 var rotation_force := 90
 
-#
-var margin := 16
+#margin for smoother screenwrap
+var margin := 32
 
 func _ready() -> void:
 	#Getting parent player node as CharacterBody2D to allow physics + velocity
