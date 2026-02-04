@@ -2,6 +2,7 @@ extends Node2D
 
 @export var bullet_scene : PackedScene
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 		#check for player input and shoot bullet if true
