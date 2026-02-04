@@ -15,7 +15,7 @@ script = ExtResource("1_kyqiw")
 [node name="Movement" type="Node" parent="." unique_id=2011549041]
 script = ExtResource("1_rpqav")
 
-[node name="Weapon" type="Node" parent="." unique_id=169295516 groups=["bullets"]]
+[node name="Weapon" type="Node2D" parent="." unique_id=71186060 groups=["bullets"]]
 script = ExtResource("3_dewec")
 bullet_scene = ExtResource("4_5ixxa")
 

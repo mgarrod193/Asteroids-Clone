@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @export var bullet_scene : PackedScene
 
@@ -10,9 +10,14 @@ func _process(_delta: float) -> void:
 
 #creates bullet_scene and adds into game
 func _shoot():
+	# creating bullet instance and Spawn pos transform
 	var bullet = bullet_scene.instantiate()
-	bullet.position = $BulletSpawnPos.position
-	bullet.add_to_group("bullets")
-	get_tree().current_scene.add_child(bullet)
-	print("fired")
+	var spawn_transform = $BulletSpawnPos.get_global_transform()
 	
+	#sets bullet spawn position, direction and group
+	bullet.global_position = spawn_transform.origin
+	bullet.direction = Vector2.UP.rotated(get_parent().rotation)
+	bullet.add_to_group("bullets")
+	
+	#adds root scene tree
+	get_tree().current_scene.add_child(bullet)
