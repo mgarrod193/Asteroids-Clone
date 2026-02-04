@@ -2,11 +2,12 @@ extends Node2D
 
 @export var bullet_scene : PackedScene
 
+var weapon_on_cooldown := false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 		#check for player input and shoot bullet if true
-		if Input.is_action_just_pressed("shoot"):
+		if Input.is_action_just_pressed("shoot") && !weapon_on_cooldown:
 			_shoot()
 
 #creates bullet_scene and adds into game
@@ -22,3 +23,8 @@ func _shoot():
 	
 	#adds root scene tree
 	get_tree().current_scene.add_child(bullet)
+	
+	#puts weapon on cooldown
+	weapon_on_cooldown = true
+	await get_tree().create_timer(bullet.data.weapon_cooldown).timeout
+	weapon_on_cooldown = false
