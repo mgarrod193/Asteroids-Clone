@@ -1,10 +1,26 @@
-[gd_scene format=3 uid="uid://7ygmy5j4e3kq"]
+[gd_scene format=3 uid="uid://dc8q3eknhl3fi"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_eayck"]
+[ext_resource type="Script" uid="uid://d1pmti0ulo3a2" path="res://Scripts/asteroid.gd" id="1_a2bka"]
+[ext_resource type="Texture2D" uid="uid://dygprckb5ws30" path="res://Sprites/placeholderAsteroid.png" id="2_rvlwq"]
 
-[node name="Asteroid" type="Area2D" unique_id=14597224]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bi0dy"]
+radius = 13.038404
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=774499775]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfhhd"]
+radius = 8.0
+height = 24.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1695537791]
-shape = SubResource("CircleShape2D_eayck")
+[node name="Asteroid" type="RigidBody2D" unique_id=751010995 groups=["Asteroid"]]
+gravity_scale = 0.0
+script = ExtResource("1_a2bka")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=665350561]
+texture = ExtResource("2_rvlwq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1832306725]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_bi0dy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1985318320]
+position = Vector2(7, -3)
+shape = SubResource("CapsuleShape2D_rfhhd")
