@@ -10,7 +10,7 @@ _data = {
 }
 point_count = 5
 
-[node name="GameScene" type="Node" unique_id=1568016677]
+[node name="GameScene" type="Node" unique_id=1568016677 groups=["Asteroids"]]
 script = ExtResource("1_4bvgx")
 asteroid_scene = ExtResource("2_3mbwn")
 

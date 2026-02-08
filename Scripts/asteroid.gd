@@ -13,3 +13,7 @@ func _screen_wrap():
 	var screen_size = get_viewport().get_visible_rect().size
 	position.x = wrapf(position.x, 0, screen_size.x + margin)
 	position.y = wrapf(position.y, 0, screen_size.y + margin)
+
+#called when hit by projectile
+func Destroyed():
+	queue_free()
