@@ -3,24 +3,21 @@
 [ext_resource type="Script" uid="uid://d1pmti0ulo3a2" path="res://Scripts/asteroid.gd" id="1_a2bka"]
 [ext_resource type="Texture2D" uid="uid://dygprckb5ws30" path="res://Sprites/placeholderAsteroid.png" id="2_rvlwq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bi0dy"]
-radius = 13.038404
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jnrf0"]
+friction = 0.0
+bounce = 1.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfhhd"]
-radius = 8.0
-height = 24.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_jnrf0"]
+radius = 15.0
 
 [node name="Asteroid" type="RigidBody2D" unique_id=751010995 groups=["Asteroid"]]
+physics_material_override = SubResource("PhysicsMaterial_jnrf0")
 gravity_scale = 0.0
 script = ExtResource("1_a2bka")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=665350561]
 texture = ExtResource("2_rvlwq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1832306725]
-position = Vector2(-2, -1)
-shape = SubResource("CircleShape2D_bi0dy")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1985318320]
-position = Vector2(7, -3)
-shape = SubResource("CapsuleShape2D_rfhhd")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1985325026]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_jnrf0")
