@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cx8qwj4i1y367"]
 
 [ext_resource type="FontFile" uid="uid://cqiwgykpr5onr" path="res://Art/Text/neatpixels-standard.ttf" id="1_e0onf"]
+[ext_resource type="Script" uid="uid://be1pqtbbokel3" path="res://Scripts/hud.gd" id="1_fccik"]
 
 [node name="HUD" type="CanvasLayer" unique_id=419437901]
+script = ExtResource("1_fccik")
 
 [node name="ScoreText" type="Label" parent="." unique_id=976921588]
 offset_right = 40.0
