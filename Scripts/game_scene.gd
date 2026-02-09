@@ -2,11 +2,13 @@ extends Node
 
 @export var asteroid_scene: PackedScene
 
+@onready var hud = $HUD 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Player.position = $StartingPos.position
 
-
+#Spawns Asteroid
 func _on_asteroid_timer_timeout() -> void:
 	var asteroid = asteroid_scene.instantiate()
 	var min_asteroid_velocity := 10.0
@@ -32,3 +34,7 @@ func _on_asteroid_timer_timeout() -> void:
 	asteroid.add_to_group("Asteroids")
 	
 	add_child(asteroid)
+
+
+func _on_player_hit() -> void:
+	hud.Lose_Life()
