@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cx8qwj4i1y367"]
+
+[ext_resource type="FontFile" uid="uid://cqiwgykpr5onr" path="res://Art/Text/neatpixels-standard.ttf" id="1_e0onf"]
+
+[node name="HUD" type="CanvasLayer" unique_id=419437901]
+
+[node name="ScoreText" type="Label" parent="." unique_id=976921588]
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_e0onf")
+text = "Score: 0000"
+vertical_alignment = 2
+
+[node name="LivesText" type="Label" parent="." unique_id=1565701895]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_e0onf")
+text = "Lives: 3"
+horizontal_alignment = 2
+vertical_alignment = 2

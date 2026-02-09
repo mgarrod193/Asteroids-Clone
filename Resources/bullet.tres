@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="projectileData" format=3 uid="uid://lp7sfeinnsiv"]
 
 [ext_resource type="Script" uid="uid://6npbs5860c6e" path="res://Scripts/projectileData.gd" id="1_2hlfa"]
-[ext_resource type="Texture2D" uid="uid://kkiikala5umq" path="res://Sprites/bulletplaceholder.png" id="2_v5kv0"]
+[ext_resource type="Texture2D" uid="uid://kkiikala5umq" path="res://Art/Sprites/bulletplaceholder.png" id="2_v5kv0"]
 
 [resource]
 script = ExtResource("1_2hlfa")

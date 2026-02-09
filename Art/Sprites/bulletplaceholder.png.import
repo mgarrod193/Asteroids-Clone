@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6p12plvnubh7"
-path="res://.godot/imported/Asteroidplaceholderplayer.png-54ace849eab8319948d8896c95a2bf7a.ctex"
+uid="uid://kkiikala5umq"
+path="res://.godot/imported/bulletplaceholder.png-137c68e05f88fb2e12bf31ef039aca74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Asteroidplaceholderplayer.png"
-dest_files=["res://.godot/imported/Asteroidplaceholderplayer.png-54ace849eab8319948d8896c95a2bf7a.ctex"]
+source_file="res://Art/Sprites/bulletplaceholder.png"
+dest_files=["res://.godot/imported/bulletplaceholder.png-137c68e05f88fb2e12bf31ef039aca74.ctex"]
 
 [params]
 
