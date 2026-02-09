@@ -10,7 +10,7 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_jnrf0"]
 radius = 15.0
 
-[node name="LargeAsteroid" type="RigidBody2D" unique_id=751010995 groups=["Asteroid"]]
+[node name="Asteroid" type="RigidBody2D" unique_id=751010995 groups=["Asteroid"]]
 physics_material_override = SubResource("PhysicsMaterial_jnrf0")
 gravity_scale = 0.0
 can_sleep = false

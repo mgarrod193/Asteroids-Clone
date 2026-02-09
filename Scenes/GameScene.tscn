@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://nklf1vrn55rc" path="res://Scenes/Player.tscn" id="1_2wl7v"]
 [ext_resource type="Script" uid="uid://bg8st0d84111g" path="res://Scripts/game_scene.gd" id="1_4bvgx"]
-[ext_resource type="PackedScene" uid="uid://dc8q3eknhl3fi" path="res://Scenes/LargeAsteroid.tscn" id="2_3mbwn"]
+[ext_resource type="PackedScene" uid="uid://dc8q3eknhl3fi" path="res://Scenes/Asteroid.tscn" id="2_3mbwn"]
 
 [sub_resource type="Curve2D" id="Curve2D_2wl7v"]
 _data = {
