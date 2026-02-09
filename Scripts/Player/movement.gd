@@ -4,12 +4,12 @@ var player: CharacterBody2D
 
 #Variables for speed and rotation speed
 var max_speed := 4000.0
-var forward_impulse := 10000.0
-var drag := 125.0
-var rotation_force := 90
+var forward_impulse := 8000.0
+var drag := 90.0
+var rotation_force := 120
 
 #margin for smoother screenwrap
-var margin := 32
+var margin := 16
 
 func _ready() -> void:
 	#Getting parent player node as CharacterBody2D to allow physics + velocity

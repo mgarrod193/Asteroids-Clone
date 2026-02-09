@@ -6,22 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://6p12plvnubh7" path="res://Sprites/Asteroidplaceholderplayer.png" id="3_gntrk"]
 [ext_resource type="PackedScene" uid="uid://cg1p3aarjgnjd" path="res://Scenes/Projectile.tscn" id="4_5ixxa"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_5ixxa"]
-a = Vector2(0, -13)
-b = Vector2(-15, 12)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_nn08x"]
-a = Vector2(0, 7)
-b = Vector2(-15, 13)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_52ee3"]
-a = Vector2(15, 12)
-b = Vector2(-1, 7)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_bhhdu"]
-a = Vector2(0, -13)
-b = Vector2(15, 13)
-
 [node name="Player" type="CharacterBody2D" unique_id=69791035]
 script = ExtResource("1_kyqiw")
 
@@ -38,16 +22,9 @@ position = Vector2(0, -13)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=228084409]
 texture = ExtResource("3_gntrk")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1452653083]
+[node name="Hitbox" type="Area2D" parent="." unique_id=576331073]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1018921822]
-shape = SubResource("SegmentShape2D_5ixxa")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox" unique_id=1039772893]
+polygon = PackedVector2Array(0, -13, 15, 12, 0, 8, -15, 13)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=586913592]
-shape = SubResource("SegmentShape2D_nn08x")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hitbox" unique_id=2100167075]
-shape = SubResource("SegmentShape2D_52ee3")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Hitbox" unique_id=1783073295]
-shape = SubResource("SegmentShape2D_bhhdu")
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

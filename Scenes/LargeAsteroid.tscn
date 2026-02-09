@@ -10,14 +10,21 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_jnrf0"]
 radius = 15.0
 
-[node name="Asteroid" type="RigidBody2D" unique_id=751010995 groups=["Asteroid"]]
+[node name="LargeAsteroid" type="RigidBody2D" unique_id=751010995 groups=["Asteroid"]]
 physics_material_override = SubResource("PhysicsMaterial_jnrf0")
 gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+continuous_cd = 2
+linear_damp_mode = 1
+angular_damp_mode = 1
 script = ExtResource("1_a2bka")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=665350561]
+scale = Vector2(2, 2)
 texture = ExtResource("2_rvlwq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1985325026]
 position = Vector2(1, -2)
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_jnrf0")

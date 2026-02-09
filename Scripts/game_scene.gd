@@ -9,6 +9,8 @@ func _ready() -> void:
 
 func _on_asteroid_timer_timeout() -> void:
 	var asteroid = asteroid_scene.instantiate()
+	var min_asteroid_velocity := 10.0
+	var max_asteroid_velocity := 50.0
 	
 	# Picks randon location on SpawnPath
 	var asteroid_spwan_location = $SpawnPath/PathFollow2D
@@ -24,7 +26,7 @@ func _on_asteroid_timer_timeout() -> void:
 	asteroid.rotation = direction
 	
 	#gives asteroid speed
-	var velocity = Vector2(randf_range(50.0, 150.0), 0.0)
+	var velocity = Vector2(randf_range(min_asteroid_velocity, max_asteroid_velocity), 0.0)
 	asteroid.linear_velocity = velocity.rotated(direction)
 	
 	asteroid.add_to_group("Asteroids")
