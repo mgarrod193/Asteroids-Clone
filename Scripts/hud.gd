@@ -12,14 +12,17 @@ func _ready() -> void:
 	lives_text = $LivesText.text
 	Reset_Score_and_lives()
 
+#Increase score by set amount and updates text
 func Increase_Score(IncreaseScore: int):
 	score += IncreaseScore
 	score_text = "Score: " + str(score)
 
+#reduces players lives and updates text
 func Lose_Life():
 	lives -= 1
 	lives_text = "Lives: " + str(lives)
 
+#resets score and lives values back to default
 func Reset_Score_and_lives():
 	score = 0
 	score_text = "score: " + str(score)
