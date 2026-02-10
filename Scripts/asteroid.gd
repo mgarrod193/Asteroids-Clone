@@ -10,6 +10,8 @@ var max_angular_veloctiy := 0.8
 #variables for asteroid speed
 var min_asteroid_velocity := 10.0
 var max_asteroid_velocity := 75.0
+
+var score
  
 var current_size: Vector2
 @onready var asteroid_scene: PackedScene = preload("res://Scenes/Asteroid.tscn")
@@ -50,8 +52,11 @@ func Destroyed():
 			var velocity = Vector2(randf_range(min_asteroid_velocity, max_asteroid_velocity), 0.0)
 			new_asteroid.linear_velocity = velocity.rotated(direction)
 			
+			new_asteroid.score = score * 2
 			new_asteroid.add_to_group("Asteroids")
 			
 			get_parent().add_child(new_asteroid)
+
+	get_parent().asteroid_destroyed(score)
 	queue_free()
 	

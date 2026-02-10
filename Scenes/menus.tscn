@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bvnm8gs542etm"]
+
+[ext_resource type="Script" uid="uid://4bnvm1utjomc" path="res://Scripts/menus.gd" id="1_goel8"]
+[ext_resource type="FontFile" uid="uid://cqiwgykpr5onr" path="res://Art/Text/neatpixels-standard.ttf" id="2_sqhkm"]
+
+[node name="Menus" type="CanvasLayer" unique_id=1719554753]
+script = ExtResource("1_goel8")
+
+[node name="TitleText" type="Label" parent="." unique_id=764377878]
+anchors_preset = -1
+anchor_left = 0.14648438
+anchor_top = 0.12291667
+anchor_right = 0.85546875
+anchor_bottom = 0.25208333
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_sqhkm")
+theme_override_font_sizes/font_size = 48
+text = "Asteroids!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1363701232]
+modulate = Color(0.8193202, 0.8193202, 0.8193202, 1)
+anchors_preset = -1
+anchor_left = 0.3305664
+anchor_top = 0.346875
+anchor_right = 0.6694336
+anchor_bottom = 0.653125
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Panel" unique_id=966918790]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+split_offsets = PackedInt32Array(21, 36, 77, 0, 0)
+split_offset = 21
+
+[node name="PanelTitle" type="Label" parent="Panel/VSplitContainer" unique_id=715673427]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_sqhkm")
+theme_override_font_sizes/font_size = 32
+text = "Let's Play!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VSplitContainer" unique_id=1843902877]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Panel/VSplitContainer" unique_id=352691984]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Panel/VSplitContainer" unique_id=991105762]
+layout_mode = 2
+
+[node name="PlayButton" type="MenuButton" parent="Panel/VSplitContainer" unique_id=1069215991]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqhkm")
+theme_override_font_sizes/font_size = 32
+button_pressed = true
+text = "Play!"
+
+[node name="HighScoreButton" type="MenuButton" parent="Panel/VSplitContainer" unique_id=1730803865]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqhkm")
+theme_override_font_sizes/font_size = 32
+text = "High Scores"
