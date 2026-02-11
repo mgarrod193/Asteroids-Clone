@@ -44,13 +44,13 @@ func Destroyed():
 	
 	#creates 2 to 3 new asteroids if not the smallest asteroid size.
 	if current_size > Vector2(0.5, 0.5):
-		for i in range(randf_range(2,4)):
+		for i in range(randi_range(2,4)):
 			new_asteroid = asteroid_scene.instantiate()
 			
 			#gives new asteroid position, direction and velocity
 			new_asteroid.position = position
 			new_asteroid.set_new_scale($Sprite2D.scale * 0.5)
-			var direction = new_asteroid.rotation + randf_range(PI/2, PI*2)
+			var direction = new_asteroid.rotation + randf_range(0, TAU)
 			var velocity = Vector2(randf_range(min_asteroid_velocity, max_asteroid_velocity), 0.0)
 			new_asteroid.linear_velocity = velocity.rotated(direction)
 			

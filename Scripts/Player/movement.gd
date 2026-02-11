@@ -3,9 +3,9 @@ extends Node
 var player: CharacterBody2D
 
 #Variables for speed and rotation speed
-var max_speed := 4000.0
-var forward_impulse := 8000.0
-var drag := 90.0
+var max_speed := 200.0
+var forward_impulse := 100.0
+var drag := 150.0
 var rotation_force := 120
 
 #margin for smoother screenwrap
@@ -31,7 +31,7 @@ func _player_movement(delta: float):
 	if (Input.is_action_pressed("forward")):
 		#Get players current angle and apply forward thrust
 		var direction = Vector2.UP.rotated(player.rotation)
-		player.velocity = direction * forward_impulse * delta
+		player.velocity += direction * forward_impulse
 	else:
 		# Reduce players velocity to zero by drag factor amount
 		player.velocity = player.velocity.move_toward(Vector2.ZERO, 

@@ -2,9 +2,13 @@ extends Node
 
 @export var asteroid_scene: PackedScene
 
+const min_asteroid_velocity := 10.0
+const max_asteroid_velocity := 75.0
+
 @onready var hud = $HUD 
 @onready var menu = $Menus
 @onready var player = $Player
+@onready var starting_pos = $StartingPos.position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,14 +18,12 @@ func _ready() -> void:
 func start_game():
 	get_tree().call_group("Asteroids", "queue_free")
 	menu.hide()
-	player.position = $StartingPos.position
+	player.position = starting_pos
 	player.show()
 
 #Spawns Asteroid
 func _on_asteroid_timer_timeout() -> void:
 	var asteroid = asteroid_scene.instantiate()
-	var min_asteroid_velocity := 10.0
-	var max_asteroid_velocity := 75.0
 	
 	# Picks randon location on SpawnPath
 	var asteroid_spwan_location = $SpawnPath/PathFollow2D
@@ -48,7 +50,7 @@ func _on_asteroid_timer_timeout() -> void:
 
 func _on_player_hit() -> void:
 	hud.Lose_Life()
-	player.position = $StartingPos.position
+	player.position = starting_pos
 
 func asteroid_destroyed(scoreincrease: int):
 	hud.Increase_Score(scoreincrease)
