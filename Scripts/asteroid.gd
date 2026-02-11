@@ -21,7 +21,7 @@ func _ready() -> void:
 	angular_velocity =  randf_range(min_angular_velocity, max_angular_veloctiy)
 	margin = margin_pixles * current_size.x
 
-func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	_screen_wrap()
 
 #sets the scale of the asteroid
@@ -38,6 +38,8 @@ func _screen_wrap():
 
 #called when hit by projectile
 func Destroyed():
+	$CollisionShape2D.set_deferred("disabled", true)
+	
 	var new_asteroid
 	
 	#creates 2 to 3 new asteroids if not the smallest asteroid size.
@@ -55,7 +57,7 @@ func Destroyed():
 			new_asteroid.score = score * 2
 			new_asteroid.add_to_group("Asteroids")
 			
-			get_parent().add_child(new_asteroid)
+			get_parent().call_deferred("add_child", new_asteroid)
 
 	get_parent().asteroid_destroyed(score)
 	queue_free()

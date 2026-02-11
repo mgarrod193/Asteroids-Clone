@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bg8st0d84111g" path="res://Scripts/game_scene.gd" id="1_4bvgx"]
 [ext_resource type="PackedScene" uid="uid://dc8q3eknhl3fi" path="res://Scenes/Asteroid.tscn" id="2_3mbwn"]
 [ext_resource type="PackedScene" uid="uid://cx8qwj4i1y367" path="res://Scenes/hud.tscn" id="4_jwv4s"]
+[ext_resource type="PackedScene" uid="uid://bvnm8gs542etm" path="res://Scenes/menus.tscn" id="5_lohlh"]
 
 [sub_resource type="Curve2D" id="Curve2D_2wl7v"]
 _data = {
@@ -11,9 +12,17 @@ _data = {
 }
 point_count = 5
 
-[node name="GameScene" type="Node" unique_id=1568016677 groups=["Asteroids"]]
+[node name="GameScene" type="Node" unique_id=1568016677]
 script = ExtResource("1_4bvgx")
 asteroid_scene = ExtResource("2_3mbwn")
+
+[node name="Background" type="ColorRect" parent="." unique_id=239682668]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." unique_id=69791035 instance=ExtResource("1_2wl7v")]
 
@@ -32,14 +41,7 @@ position = Vector2(256, 240)
 
 [node name="HUD" parent="." unique_id=419437901 instance=ExtResource("4_jwv4s")]
 
-[node name="Background" type="ColorRect" parent="." unique_id=239682668]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="Menus" parent="." unique_id=1719554753 instance=ExtResource("5_lohlh")]
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]

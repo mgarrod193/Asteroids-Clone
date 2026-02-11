@@ -23,16 +23,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="." unique_id=1363701232]
 modulate = Color(0.8193202, 0.8193202, 0.8193202, 1)
-anchors_preset = -1
-anchor_left = 0.3305664
-anchor_top = 0.346875
-anchor_right = 0.6694336
-anchor_bottom = 0.653125
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 99.0
+offset_top = 140.0
+offset_right = -106.86667
+offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-metadata/_edit_use_anchors_ = true
 
 [node name="VSplitContainer" type="VSplitContainer" parent="Panel" unique_id=966918790]
 layout_mode = 1
@@ -81,3 +82,5 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_sqhkm")
 theme_override_font_sizes/font_size = 32
 text = "High Scores"
+
+[connection signal="button_down" from="Panel/VSplitContainer/PlayButton" to="." method="_on_play_button_button_down"]

@@ -3,10 +3,19 @@ extends Node
 @export var asteroid_scene: PackedScene
 
 @onready var hud = $HUD 
+@onready var menu = $Menus
+@onready var player = $Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Player.position = $StartingPos.position
+	player.hide()
+
+#called when play button pressed
+func start_game():
+	get_tree().call_group("Asteroids", "queue_free")
+	menu.hide()
+	player.position = $StartingPos.position
+	player.show()
 
 #Spawns Asteroid
 func _on_asteroid_timer_timeout() -> void:
@@ -39,7 +48,7 @@ func _on_asteroid_timer_timeout() -> void:
 
 func _on_player_hit() -> void:
 	hud.Lose_Life()
-	$Player.position = $StartingPos.position
+	player.position = $StartingPos.position
 
 func asteroid_destroyed(scoreincrease: int):
 	hud.Increase_Score(scoreincrease)
