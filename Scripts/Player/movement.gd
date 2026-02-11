@@ -11,6 +11,8 @@ var rotation_force := 120
 #margin for smoother screenwrap
 var margin := 16
 
+@onready var screen_size = get_viewport().get_visible_rect().size
+
 func _ready() -> void:
 	#Getting parent player node as CharacterBody2D to allow physics + velocity
 	player = get_parent() as CharacterBody2D
@@ -50,7 +52,6 @@ func _player_movement(delta: float):
 
 # Gets visible screen size allows player to screen wrap
 func _screen_wrap():
-	var screen_size = get_viewport().get_visible_rect().size
 	player.position.x = wrapf(player.position.x, 0, screen_size.x + margin)
 	player.position.y = wrapf(player.position.y, 0, screen_size.y + margin)
 	

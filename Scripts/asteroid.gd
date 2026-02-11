@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var margin_pixles = 16
+var margin_pixels = 16
 var margin
 
 #viariables for asteroid spin
@@ -15,11 +15,12 @@ var score
  
 var current_size: Vector2
 @onready var asteroid_scene: PackedScene = preload("res://Scenes/Asteroid.tscn")
+@onready var screen_size = get_viewport().get_visible_rect().size
 
 func _ready() -> void:
 	current_size = $Sprite2D.scale
 	angular_velocity =  randf_range(min_angular_velocity, max_angular_veloctiy)
-	margin = margin_pixles * current_size.x
+	margin = margin_pixels * current_size.x
 
 func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	_screen_wrap()
@@ -32,7 +33,6 @@ func set_new_scale(new_scale: Vector2):
 
 # Gets visible screen size allows player to screen wrap
 func _screen_wrap():
-	var screen_size = get_viewport().get_visible_rect().size	
 	position.x = wrapf(position.x, 0, screen_size.x + margin)
 	position.y = wrapf(position.y, 0, screen_size.y + margin)
 

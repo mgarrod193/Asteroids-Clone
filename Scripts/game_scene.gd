@@ -5,6 +5,9 @@ extends Node
 const min_asteroid_velocity := 10.0
 const max_asteroid_velocity := 75.0
 
+var lives := 3 
+var score := 0
+
 @onready var hud = $HUD 
 @onready var menu = $Menus
 @onready var player = $Player
@@ -16,6 +19,7 @@ func _ready() -> void:
 
 #called when play button pressed
 func start_game():
+	hud.reset_lives_and_score(lives,score)
 	get_tree().call_group("Asteroids", "queue_free")
 	menu.hide()
 	player.position = starting_pos
@@ -49,8 +53,10 @@ func _on_asteroid_timer_timeout() -> void:
 
 
 func _on_player_hit() -> void:
-	hud.Lose_Life()
+	lives -= 1 
+	hud.lose_life(lives)
 	player.position = starting_pos
 
 func asteroid_destroyed(scoreincrease: int):
-	hud.Increase_Score(scoreincrease)
+	score += scoreincrease
+	hud.update_score(score)
