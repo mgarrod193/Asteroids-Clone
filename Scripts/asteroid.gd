@@ -58,7 +58,8 @@ func Destroyed():
 			new_asteroid.add_to_group("Asteroids")
 			
 			get_parent().call_deferred("add_child", new_asteroid)
-
+			
+	
 	get_parent().asteroid_destroyed(score)
 	queue_free()
 	
