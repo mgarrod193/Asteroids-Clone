@@ -4,6 +4,8 @@ extends Node2D
 
 var weapon_on_cooldown := false
 
+@onready var shoot_sfx := $AudioStreamPlayer2D
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 		#check for player input and shoot bullet if true
@@ -12,6 +14,8 @@ func _process(_delta: float) -> void:
 
 #creates bullet_scene and adds into game
 func _shoot():
+	shoot_sfx.play()
+	
 	# creating bullet instance and Spawn pos transform
 	var bullet = bullet_scene.instantiate()
 	var spawn_transform = $BulletSpawnPos.get_global_transform()
