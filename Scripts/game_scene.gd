@@ -17,9 +17,11 @@ var score := 0
 func _ready() -> void:
 	player.hide()
 
-#called when play button pressed
+#called when play button pressed sets up initial game scene, lives and score
 func start_game():
-	hud.reset_lives_and_score(lives,score)
+	lives = 3
+	score = 0
+	hud.reset_lives_and_score(lives, score)
 	get_tree().call_group("Asteroids", "queue_free")
 	menu.hide()
 	player.position = starting_pos
