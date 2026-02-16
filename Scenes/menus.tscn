@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cqiwgykpr5onr" path="res://Art/Text/neatpixels-standard.ttf" id="2_sqhkm"]
 
 [node name="Menus" type="CanvasLayer" unique_id=1719554753]
+follow_viewport_enabled = true
 script = ExtResource("1_goel8")
 
 [node name="TitleText" type="Label" parent="." unique_id=764377878]
@@ -63,10 +64,16 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 split_offsets = PackedInt32Array(50)
+dragging_enabled = false
+dragger_visibility = 1
 split_offset = 50
 
 [node name="PlayButton" type="MenuButton" parent="Panel/VSplitContainer" unique_id=1069215991]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.5502926, 0.5502935, 0.55029273, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_sqhkm")
 theme_override_font_sizes/font_size = 32
 button_pressed = true
@@ -74,6 +81,9 @@ text = "Play!"
 
 [node name="HighScoreButton" type="MenuButton" parent="Panel/VSplitContainer" unique_id=1730803865]
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_sqhkm")
 theme_override_font_sizes/font_size = 32
 text = "High Scores"

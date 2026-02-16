@@ -42,6 +42,7 @@ position = Vector2(256, 240)
 [node name="HUD" parent="." unique_id=419437901 instance=ExtResource("4_jwv4s")]
 
 [node name="Menus" parent="." unique_id=1719554753 instance=ExtResource("5_lohlh")]
+follow_viewport_enabled = false
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal hit
 
 var _is_invulnerable = false
+var can_move = true
 
 @onready var invuln_timer = $InvulnTimer
 @onready var collision_shape = $Hitbox/CollisionPolygon2D

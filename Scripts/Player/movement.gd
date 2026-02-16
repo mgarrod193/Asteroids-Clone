@@ -21,7 +21,8 @@ func _ready() -> void:
 		push_error("Parent is not a CharacterBody2D")
 
 func _physics_process(delta: float) -> void:
-	_player_movement(delta)
+	if player.can_move:
+		_player_movement(delta)
 
 #called every frame
 func _process(_delta: float) -> void:
