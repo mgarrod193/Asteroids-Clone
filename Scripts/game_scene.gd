@@ -53,10 +53,19 @@ func _on_asteroid_timer_timeout() -> void:
 
 
 func _on_player_hit() -> void:
-	lives -= 1 
-	hud.lose_life(lives)
-	player.position = starting_pos
+	if lives > 1:
+		lives -= 1 
+		hud.lose_life(lives)
+		player.position = starting_pos
+	else:
+		game_over()
 
 func asteroid_destroyed(scoreincrease: int):
 	score += scoreincrease
 	hud.update_score(score)
+
+func game_over():
+	player.hide()
+	get_tree().call_group("Asteroids", "queue_free")
+	menu.update_menu_message("You Lose!")
+	menu.show()

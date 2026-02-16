@@ -35,25 +35,12 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="VSplitContainer" type="VSplitContainer" parent="Panel" unique_id=966918790]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-split_offsets = PackedInt32Array(21, 36, 77, 0, 0)
-split_offset = 21
-
-[node name="PanelTitle" type="Label" parent="Panel/VSplitContainer" unique_id=715673427]
-layout_mode = 2
+[node name="PanelTitle" type="Label" parent="Panel" unique_id=715673427]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 4.0
+offset_right = 284.0
+offset_bottom = 46.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_sqhkm")
 theme_override_font_sizes/font_size = 32
@@ -61,14 +48,22 @@ text = "Let's Play!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VSeparator" type="VSeparator" parent="Panel/VSplitContainer" unique_id=1843902877]
-layout_mode = 2
-
-[node name="VSeparator2" type="VSeparator" parent="Panel/VSplitContainer" unique_id=352691984]
-layout_mode = 2
-
-[node name="VSeparator3" type="VSeparator" parent="Panel/VSplitContainer" unique_id=991105762]
-layout_mode = 2
+[node name="VSplitContainer" type="VSplitContainer" parent="Panel" unique_id=966918790]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.06667
+offset_top = -35.5
+offset_right = 146.93333
+offset_bottom = 139.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+split_offsets = PackedInt32Array(50)
+split_offset = 50
 
 [node name="PlayButton" type="MenuButton" parent="Panel/VSplitContainer" unique_id=1069215991]
 layout_mode = 2
