@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if game_started && get_tree().get_node_count_in_group("Asteroids") == 0:
-		if cur_wave < waves.size():
+		if cur_wave < waves.size()-1:
 			cur_wave += 1
 		_spawn_wave(waves[cur_wave])
 
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 func start_game():
 	lives = 3
 	score = 0
-	cur_wave = 5
+	cur_wave = 0
 	hud.reset_lives_and_score(lives, score)
 	get_tree().call_group("Asteroids", "queue_free")
 	menu.hide()
@@ -46,7 +46,7 @@ func start_game():
 	
 #Spawns Asteroid
 func _spawn_wave(wave: wavesData) -> void:
-	print(waves.count(wavesData))
+	print(waves.size())
 	print(cur_wave)
 	for i in range(wave.amount_to_spawn):
 		var asteroid = asteroid_scene.instantiate()
@@ -73,7 +73,8 @@ func _spawn_wave(wave: wavesData) -> void:
 	
 		add_child(asteroid)
 
-
+#function to remove player lives, update hud and reset players poisiton, triggers game
+#over if player is out of lives
 func _on_player_hit() -> void:
 	if lives > 1:
 		lives -= 1 
@@ -82,12 +83,16 @@ func _on_player_hit() -> void:
 	else:
 		game_over()
 
+#increase score by asteroid destroyed score value and updates hud
 func asteroid_destroyed(scoreincrease: int):
 	score += scoreincrease
 	hud.update_score(score)
 
+#called when player runs out of lives, hides player and displays game menu
 func game_over():
+	game_started = false
 	player.hide()
+	player.is_invulnerable = true
 	get_tree().call_group("Asteroids", "queue_free")
-	menu.update_menu_message("You Lose!")
+	menu.update_menu_message("Score: " + str(score),"You Lose!")
 	menu.show()
