@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="wavesData" format=3 uid="uid://csq0et8mb3lxq"]
+
+[ext_resource type="Script" uid="uid://do1yvjoq4v4gu" path="res://Scripts/WavesData.gd" id="2_1sc38"]
+
+[resource]
+script = ExtResource("2_1sc38")
+amount_to_spawn = 1

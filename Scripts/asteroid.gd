@@ -44,7 +44,7 @@ func Destroyed():
 	
 	#creates 2 to 3 new asteroids if not the smallest asteroid size.
 	if current_size > Vector2(0.5, 0.5):
-		for i in range(randi_range(2,4)):
+		for i in range(randi_range(2,3)):
 			new_asteroid = asteroid_scene.instantiate()
 			
 			#gives new asteroid position, direction and velocity

@@ -3,8 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://nklf1vrn55rc" path="res://Scenes/Player.tscn" id="1_2wl7v"]
 [ext_resource type="Script" uid="uid://bg8st0d84111g" path="res://Scripts/game_scene.gd" id="1_4bvgx"]
 [ext_resource type="PackedScene" uid="uid://dc8q3eknhl3fi" path="res://Scenes/Asteroid.tscn" id="2_3mbwn"]
+[ext_resource type="Script" uid="uid://do1yvjoq4v4gu" path="res://Scripts/WavesData.gd" id="3_cr6v8"]
+[ext_resource type="Resource" uid="uid://csq0et8mb3lxq" path="res://Resources/Waves/Wave1.tres" id="4_f43ej"]
 [ext_resource type="PackedScene" uid="uid://cx8qwj4i1y367" path="res://Scenes/hud.tscn" id="4_jwv4s"]
+[ext_resource type="Resource" uid="uid://dorbkbfflldpb" path="res://Resources/Waves/Wave2.tres" id="5_7rq2r"]
 [ext_resource type="PackedScene" uid="uid://bvnm8gs542etm" path="res://Scenes/menus.tscn" id="5_lohlh"]
+[ext_resource type="Resource" uid="uid://bc5a8nv0a7vl3" path="res://Resources/Waves/Wave3.tres" id="6_124qp"]
+[ext_resource type="Resource" uid="uid://ue6i77yyn6rk" path="res://Resources/Waves/Wave4.tres" id="7_qolck"]
+[ext_resource type="Resource" uid="uid://boanxunioy1q7" path="res://Resources/Waves/Wave5.tres" id="8_ry528"]
+[ext_resource type="Resource" uid="uid://cyvd84n0c7qhk" path="res://Resources/Waves/Wave6.tres" id="9_yhlfj"]
+[ext_resource type="Resource" uid="uid://evooka8tv6m3" path="res://Resources/Waves/MenuWave.tres" id="10_f43ej"]
 
 [sub_resource type="Curve2D" id="Curve2D_2wl7v"]
 _data = {
@@ -15,6 +23,8 @@ point_count = 5
 [node name="GameScene" type="Node" unique_id=1568016677]
 script = ExtResource("1_4bvgx")
 asteroid_scene = ExtResource("2_3mbwn")
+waves = Array[ExtResource("3_cr6v8")]([ExtResource("4_f43ej"), ExtResource("5_7rq2r"), ExtResource("6_124qp"), ExtResource("7_qolck"), ExtResource("8_ry528"), ExtResource("9_yhlfj")])
+menu_wave = ExtResource("10_f43ej")
 
 [node name="Background" type="ColorRect" parent="." unique_id=239682668]
 anchors_preset = 15
@@ -32,10 +42,6 @@ curve = SubResource("Curve2D_2wl7v")
 [node name="PathFollow2D" type="PathFollow2D" parent="SpawnPath" unique_id=2112714713]
 position = Vector2(-2, -3)
 
-[node name="AsteroidTimer" type="Timer" parent="." unique_id=477067199]
-wait_time = 3.0
-autostart = true
-
 [node name="StartingPos" type="Marker2D" parent="." unique_id=348888802]
 position = Vector2(256, 240)
 
@@ -45,4 +51,3 @@ position = Vector2(256, 240)
 follow_viewport_enabled = false
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
-[connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]

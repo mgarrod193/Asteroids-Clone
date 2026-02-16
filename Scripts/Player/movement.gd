@@ -4,7 +4,7 @@ var player: CharacterBody2D
 
 #Variables for speed and rotation speed
 var max_speed := 200.0
-var forward_impulse := 100.0
+var forward_impulse := 50.0
 var drag := 150.0
 var rotation_force := 120
 
