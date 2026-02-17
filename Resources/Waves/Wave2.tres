@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_xcoj0")
-amount_to_spawn = 2
+amount_to_spawn = 4

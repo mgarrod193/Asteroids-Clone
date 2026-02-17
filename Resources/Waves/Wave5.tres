@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_ksc3m")
-amount_to_spawn = 5
+amount_to_spawn = 7

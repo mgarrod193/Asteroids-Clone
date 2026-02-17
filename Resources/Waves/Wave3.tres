@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_4ucac")
-amount_to_spawn = 3
+amount_to_spawn = 5

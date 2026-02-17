@@ -1,5 +1,6 @@
 extends Node
 
+@export var explosion_pfx: PackedScene
 @export var asteroid_scene: PackedScene
 @export var waves: Array[wavesData]
 @export var menu_wave: wavesData
@@ -14,10 +15,11 @@ var cur_wave := 0
 var game_started := false
 
 #caching node references on startup
-@onready var hud = $HUD 
-@onready var menu = $Menus
-@onready var player = $Player
+@onready var hud := $HUD 
+@onready var menu := $Menus
+@onready var player := $Player
 @onready var starting_pos = $StartingPos.position
+@onready var explosion_sound := $ExplosionSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -84,9 +86,16 @@ func _on_player_hit() -> void:
 		game_over()
 
 #increase score by asteroid destroyed score value and updates hud
-func asteroid_destroyed(scoreincrease: int):
+func asteroid_destroyed(scoreincrease: int, asteroid_pos: Vector2):
+	var explosion_effect = explosion_pfx.instantiate()
+	explosion_effect.position = asteroid_pos
+	explosion_effect.emitting = true
+	add_child(explosion_effect)
+	
 	score += scoreincrease
 	hud.update_score(score)
+	explosion_sound.play()
+
 
 #called when player runs out of lives, hides player and displays game menu
 func game_over():

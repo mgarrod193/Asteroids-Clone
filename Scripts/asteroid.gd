@@ -39,7 +39,6 @@ func _screen_wrap():
 #called when hit by projectile
 func Destroyed():
 	$CollisionShape2D.set_deferred("disabled", true)
-	
 	var new_asteroid
 	
 	#creates 2 to 3 new asteroids if not the smallest asteroid size.
@@ -60,6 +59,6 @@ func Destroyed():
 			get_parent().call_deferred("add_child", new_asteroid)
 			
 	
-	get_parent().asteroid_destroyed(score)
+	get_parent().asteroid_destroyed(score, self.position)
 	queue_free()
 	

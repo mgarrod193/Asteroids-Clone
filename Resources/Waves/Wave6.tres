@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_ai1l5")
-amount_to_spawn = 7
+amount_to_spawn = 8

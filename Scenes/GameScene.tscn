@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://nklf1vrn55rc" path="res://Scenes/Player.tscn" id="1_2wl7v"]
 [ext_resource type="Script" uid="uid://bg8st0d84111g" path="res://Scripts/game_scene.gd" id="1_4bvgx"]
 [ext_resource type="PackedScene" uid="uid://dc8q3eknhl3fi" path="res://Scenes/Asteroid.tscn" id="2_3mbwn"]
+[ext_resource type="PackedScene" uid="uid://1pp47ryg4xb6" path="res://Scenes/explosion_partciles_effect_scene.tscn" id="2_qolck"]
 [ext_resource type="Script" uid="uid://do1yvjoq4v4gu" path="res://Scripts/WavesData.gd" id="3_cr6v8"]
 [ext_resource type="Resource" uid="uid://csq0et8mb3lxq" path="res://Resources/Waves/Wave1.tres" id="4_f43ej"]
 [ext_resource type="PackedScene" uid="uid://cx8qwj4i1y367" path="res://Scenes/hud.tscn" id="4_jwv4s"]
@@ -14,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://cyvd84n0c7qhk" path="res://Resources/Waves/Wave6.tres" id="9_yhlfj"]
 [ext_resource type="Resource" uid="uid://evooka8tv6m3" path="res://Resources/Waves/MenuWave.tres" id="10_f43ej"]
 [ext_resource type="AudioStream" uid="uid://dl1j22ajun46l" path="res://Audio/moodmode-8-bit-arcade-mode-158814.mp3" id="14_7rq2r"]
+[ext_resource type="AudioStream" uid="uid://ifypgp7w1eaw" path="res://Audio/freesound_community-medium-explosion-40472.mp3" id="15_124qp"]
 
 [sub_resource type="Curve2D" id="Curve2D_2wl7v"]
 _data = {
@@ -23,6 +25,7 @@ point_count = 5
 
 [node name="GameScene" type="Node" unique_id=1568016677]
 script = ExtResource("1_4bvgx")
+explosion_pfx = ExtResource("2_qolck")
 asteroid_scene = ExtResource("2_3mbwn")
 waves = Array[ExtResource("3_cr6v8")]([ExtResource("4_f43ej"), ExtResource("5_7rq2r"), ExtResource("6_124qp"), ExtResource("7_qolck"), ExtResource("8_ry528"), ExtResource("9_yhlfj")])
 menu_wave = ExtResource("10_f43ej")
@@ -51,9 +54,12 @@ position = Vector2(256, 240)
 [node name="Menus" parent="." unique_id=1719554753 instance=ExtResource("5_lohlh")]
 follow_viewport_enabled = false
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2138587630]
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=2138587630]
 stream = ExtResource("14_7rq2r")
 autoplay = true
 parameters/looping = true
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="." unique_id=342907386]
+stream = ExtResource("15_124qp")
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
