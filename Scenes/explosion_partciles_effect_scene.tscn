@@ -11,16 +11,19 @@ colors = PackedColorArray(0.61702573, 0.23370615, 0, 1, 1, 0.14901961, 0.1490196
 
 [node name="ExplosionPartcilesEffect" type="CPUParticles2D" unique_id=981257918]
 emitting = false
-amount = 36
+amount = 64
 lifetime = 2.0
 one_shot = true
-explosiveness = 1.0
+explosiveness = 0.8
+randomness = 1.0
+lifetime_randomness = 1.0
 emission_shape = 1
 emission_sphere_radius = 2.0
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 15.0
 initial_velocity_max = 25.0
+scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_3krcv")
 color_initial_ramp = SubResource("Gradient_gu680")
 script = ExtResource("1_gu680")

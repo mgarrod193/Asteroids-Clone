@@ -23,7 +23,7 @@ var game_started := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player.hide()
+	disable_player()
 	_spawn_wave(menu_wave)
 
 func _process(delta: float) -> void:
@@ -34,22 +34,26 @@ func _process(delta: float) -> void:
 
 #called when play button pressed sets up initial game scene, lives and score
 func start_game():
+	#reset variables
 	lives = 3
 	score = 0
 	cur_wave = 0
+	
+	#update hud values
 	hud.reset_lives_and_score(lives, score)
+	
+	#remove pre-existing asteroids
 	get_tree().call_group("Asteroids", "queue_free")
+	
+	
 	menu.hide()
-	player.position = starting_pos
-	player.show()
+	enable_player()
 	_spawn_wave(waves[cur_wave])
 	game_started = true
-	player.is_invulnerable = false
+
 	
 #Spawns Asteroid
 func _spawn_wave(wave: wavesData) -> void:
-	print(waves.size())
-	print(cur_wave)
 	for i in range(wave.amount_to_spawn):
 		var asteroid = asteroid_scene.instantiate()
 	
@@ -96,12 +100,23 @@ func asteroid_destroyed(scoreincrease: int, asteroid_pos: Vector2):
 	hud.update_score(score)
 	explosion_sound.play()
 
+#used too enable player controls, reset position and show
+func enable_player():
+	player.can_move = true
+	player.is_invulnerable = false
+	player.position = starting_pos
+	player.show()
+	
+
+func disable_player():
+	player.can_move = false
+	player.is_invulnerable = true
+	player.hide()
 
 #called when player runs out of lives, hides player and displays game menu
 func game_over():
 	game_started = false
-	player.hide()
-	player.is_invulnerable = true
+	disable_player()
 	get_tree().call_group("Asteroids", "queue_free")
 	menu.update_menu_message("Score: " + str(score),"You Lose!")
 	menu.show()

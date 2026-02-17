@@ -3,9 +3,9 @@ extends Node
 var player: CharacterBody2D
 
 #Variables for speed and rotation speed
-var max_speed := 200.0
-var forward_impulse := 50.0
-var drag := 150.0
+var max_speed := 100.0
+var forward_impulse := 20.0
+var drag := 100.0
 var rotation_force := 120
 
 #margin for smoother screenwrap

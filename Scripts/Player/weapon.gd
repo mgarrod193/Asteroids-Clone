@@ -3,13 +3,21 @@ extends Node2D
 @export var bullet_scene : PackedScene
 
 var weapon_on_cooldown := false
+var player: CharacterBody2D
 
 @onready var shoot_sfx := $AudioStreamPlayer2D
+
+func _ready() -> void:
+	#Getting parent player node as CharacterBody2D to allow physics + velocity
+	player = get_parent() as CharacterBody2D
+	#Throws error if parent is not correct node type
+	if player == null:
+		push_error("Parent is not a CharacterBody2D")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 		#check for player input and shoot bullet if true
-		if Input.is_action_just_pressed("shoot") && !weapon_on_cooldown:
+		if Input.is_action_just_pressed("shoot") && !weapon_on_cooldown && player.can_move:
 			_shoot()
 
 #creates bullet_scene and adds into game
