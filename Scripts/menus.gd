@@ -10,3 +10,7 @@ func _on_play_button_button_down() -> void:
 func update_menu_message(scoremessage: String ,message: String):
 	title_text.set_text(scoremessage)
 	panel_title.set_text(message)
+
+
+func _on_high_score_button_pressed() -> void:
+	game_scene.go_to_high_score_screen()

@@ -11,19 +11,23 @@ const max_asteroid_velocity := 90.0
 #variables for game state
 var lives := 3 
 var score := 0
+var high_score:int
 var cur_wave := 0
 var game_started := false
 
 #caching node references on startup
 @onready var hud := $HUD 
 @onready var menu := $Menus
+@onready var high_score_panel := $HighScoreScreen
 @onready var player := $Player
 @onready var starting_pos = $StartingPos.position
 @onready var explosion_sound := $ExplosionSound
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	disable_player()
+	high_score = Global.high_score
 	_spawn_wave(menu_wave)
 
 func _process(delta: float) -> void:
@@ -119,4 +123,12 @@ func game_over():
 	disable_player()
 	get_tree().call_group("Asteroids", "queue_free")
 	menu.update_menu_message("Score: " + str(score),"You Lose!")
+	menu.show()
+
+func go_to_high_score_screen():
+	menu.hide()
+	high_score_panel.show()
+
+func back_to_menu():
+	high_score_panel.hide()
 	menu.show()
