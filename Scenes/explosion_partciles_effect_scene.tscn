@@ -2,13 +2,6 @@
 
 [ext_resource type="Script" uid="uid://br5k1pnldyuvb" path="res://Scripts/explosion_partciles_effect_script.gd" id="1_gu680"]
 
-[sub_resource type="Gradient" id="Gradient_3krcv"]
-offsets = PackedFloat32Array(0, 0.9957447, 1)
-colors = PackedColorArray(1, 0, 0, 1, 0.8615214, 0.3964623, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="Gradient" id="Gradient_gu680"]
-colors = PackedColorArray(0.61702573, 0.23370615, 0, 1, 1, 0.14901961, 0.14901961, 1)
-
 [node name="ExplosionPartcilesEffect" type="CPUParticles2D" unique_id=981257918]
 emitting = false
 amount = 64
@@ -24,8 +17,7 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 15.0
 initial_velocity_max = 25.0
 scale_amount_max = 4.0
-color_ramp = SubResource("Gradient_3krcv")
-color_initial_ramp = SubResource("Gradient_gu680")
+color = Color(0.3415841, 0.34158432, 0.3415842, 1)
 script = ExtResource("1_gu680")
 
 [connection signal="finished" from="." to="." method="_on_finished"]
