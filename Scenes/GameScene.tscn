@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://nklf1vrn55rc" path="res://Scenes/Player.tscn" id="1_2wl7v"]
 [ext_resource type="Script" uid="uid://bg8st0d84111g" path="res://Scripts/game_scene.gd" id="1_4bvgx"]
-[ext_resource type="PackedScene" uid="uid://dc8q3eknhl3fi" path="res://Scenes/Asteroid.tscn" id="2_3mbwn"]
+[ext_resource type="PackedScene" uid="uid://dc8q3eknhl3fi" path="res://Scenes/Large_Asteroid.tscn" id="2_3mbwn"]
 [ext_resource type="PackedScene" uid="uid://1pp47ryg4xb6" path="res://Scenes/explosion_partciles_effect_scene.tscn" id="2_qolck"]
 [ext_resource type="Script" uid="uid://do1yvjoq4v4gu" path="res://Scripts/WavesData.gd" id="3_cr6v8"]
 [ext_resource type="Resource" uid="uid://csq0et8mb3lxq" path="res://Resources/Waves/Wave1.tres" id="4_f43ej"]

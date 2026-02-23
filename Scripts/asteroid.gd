@@ -1,7 +1,8 @@
 extends RigidBody2D
 
-var margin_pixels = 16
-var margin
+@export var asteroid_scene : PackedScene
+
+var margin = 16
 
 #viariables for asteroid spin
 var min_angular_velocity := -0.8
@@ -13,14 +14,10 @@ var max_asteroid_velocity := 75.0
 
 var score
  
-var current_size: Vector2
-@onready var asteroid_scene: PackedScene = preload("res://Scenes/Asteroid.tscn")
 @onready var screen_size = get_viewport().get_visible_rect().size
 
 func _ready() -> void:
-	current_size = $Sprite2D.scale
 	angular_velocity =  randf_range(min_angular_velocity, max_angular_veloctiy)
-	margin = margin_pixels * current_size.x
 
 func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	_screen_wrap()
@@ -42,13 +39,12 @@ func Destroyed():
 	var new_asteroid
 	
 	#creates 2 to 3 new asteroids if not the smallest asteroid size.
-	if current_size > Vector2(0.5, 0.5):
+	if score != 40:
 		for i in range(randi_range(2,3)):
 			new_asteroid = asteroid_scene.instantiate()
 			
 			#gives new asteroid position, direction and velocity
 			new_asteroid.position = position
-			new_asteroid.set_new_scale($Sprite2D.scale * 0.5)
 			var direction = new_asteroid.rotation + randf_range(0, TAU)
 			var velocity = Vector2(randf_range(min_asteroid_velocity, max_asteroid_velocity), 0.0)
 			new_asteroid.linear_velocity = velocity.rotated(direction)

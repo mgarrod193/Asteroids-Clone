@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://dc8q3eknhl3fi"]
+[gd_scene format=3 uid="uid://b6c4yfhqiimbc"]
 
-[ext_resource type="Script" uid="uid://d1pmti0ulo3a2" path="res://Scripts/asteroid.gd" id="1_a2bka"]
-[ext_resource type="Texture2D" uid="uid://c521s00cbimdd" path="res://Art/Sprites/Rock large.png" id="2_jnrf0"]
+[ext_resource type="Script" uid="uid://d1pmti0ulo3a2" path="res://Scripts/asteroid.gd" id="1_kjtth"]
+[ext_resource type="Texture2D" uid="uid://kcxiuohixct7" path="res://Art/Sprites/Rock small..png" id="2_kjtth"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jnrf0"]
 friction = 0.0
 bounce = 1.4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jnrf0"]
-radius = 14.008925
+radius = 6.0
 
 [node name="Asteroid" type="RigidBody2D" unique_id=751010995 groups=["Asteroid"]]
 physics_material_override = SubResource("PhysicsMaterial_jnrf0")
@@ -18,13 +18,13 @@ lock_rotation = true
 continuous_cd = 2
 linear_damp_mode = 1
 angular_damp_mode = 1
-script = ExtResource("1_a2bka")
+script = ExtResource("1_kjtth")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=665350561]
 scale = Vector2(2, 2)
-texture = ExtResource("2_jnrf0")
+texture = ExtResource("2_kjtth")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1985325026]
-position = Vector2(0, 2)
+position = Vector2(-1, -2)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_jnrf0")
