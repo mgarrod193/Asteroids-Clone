@@ -24,6 +24,7 @@ Global="*uid://dhlxso1sv3tmg"
 window/size/viewport_width=512
 window/size/viewport_height=480
 window/size/resizable=false
+window/stretch/scale_mode="integer"
 
 [file_customization]
 

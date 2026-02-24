@@ -27,6 +27,7 @@ var game_started := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	disable_player()
+	hud.hide()
 	high_score = Global.high_score
 	_spawn_wave(menu_wave)
 
@@ -38,6 +39,8 @@ func _process(delta: float) -> void:
 
 #called when play button pressed sets up initial game scene, lives and score
 func start_game():
+	hud.show()
+	
 	#reset variables
 	lives = 3
 	score = 0
@@ -122,6 +125,7 @@ func game_over():
 	game_started = false
 	disable_player()
 	get_tree().call_group("Asteroids", "queue_free")
+	hud.hide()
 	menu.update_menu_message("Score: " + str(score),"You Lose!")
 	menu.show()
 

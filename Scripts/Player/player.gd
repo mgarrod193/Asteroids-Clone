@@ -9,9 +9,10 @@ var can_move = true
 @onready var collision_shape = $Hitbox/CollisionPolygon2D
 @onready var sprite = $Sprite2D
 
+
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	#player hit by asteroid logic
-	if body.is_in_group("Asteroids"):
+	if body.is_in_group("Asteroids") and !is_invulnerable:
 		collision_shape.set_deferred("disabled", true)
 		hit.emit()
 		is_invulnerable = true
