@@ -5,7 +5,7 @@ extends Node2D
 var weapon_on_cooldown := false
 var player: CharacterBody2D
 
-@onready var shoot_sfx := $AudioStreamPlayer2D
+@onready var shoot_sfx := $FireSound
 
 func _ready() -> void:
 	#Getting parent player node as CharacterBody2D to allow physics + velocity

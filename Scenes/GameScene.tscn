@@ -60,6 +60,7 @@ visible = false
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=2138587630]
 stream = ExtResource("14_7rq2r")
+volume_db = -11.333
 autoplay = true
 parameters/looping = true
 

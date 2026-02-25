@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmjlsudmv42mr" path="res://Scripts/Player/player.gd" id="1_kyqiw"]
 [ext_resource type="Script" uid="uid://bbiwums7gkik1" path="res://Scripts/Player/movement.gd" id="1_rpqav"]
+[ext_resource type="AudioStream" uid="uid://b0768s2253v32" path="res://Audio/freesound_community-good-jetpack-sound-loop-96693.mp3" id="3_52ee3"]
 [ext_resource type="Script" uid="uid://xng5toel4uge" path="res://Scripts/Player/weapon.gd" id="3_dewec"]
 [ext_resource type="PackedScene" uid="uid://cg1p3aarjgnjd" path="res://Scenes/Projectile.tscn" id="4_5ixxa"]
 [ext_resource type="AudioStream" uid="uid://dm288wd5dvyif" path="res://Audio/ahmed_abdulaal-laser-312360.mp3" id="5_nn08x"]
@@ -13,6 +14,10 @@ script = ExtResource("1_kyqiw")
 [node name="Movement" type="Node" parent="." unique_id=2011549041]
 script = ExtResource("1_rpqav")
 
+[node name="ThrusterSound" type="AudioStreamPlayer2D" parent="Movement" unique_id=813879107]
+stream = ExtResource("3_52ee3")
+parameters/looping = false
+
 [node name="Weapon" type="Node2D" parent="." unique_id=71186060 groups=["bullets"]]
 script = ExtResource("3_dewec")
 bullet_scene = ExtResource("4_5ixxa")
@@ -20,7 +25,7 @@ bullet_scene = ExtResource("4_5ixxa")
 [node name="BulletSpawnPos" type="Marker2D" parent="Weapon" unique_id=261825313]
 position = Vector2(0, -13)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Weapon" unique_id=1692536152]
+[node name="FireSound" type="AudioStreamPlayer2D" parent="Weapon" unique_id=1692536152]
 stream = ExtResource("5_nn08x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=228084409]
