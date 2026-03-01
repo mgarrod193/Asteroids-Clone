@@ -16,7 +16,7 @@ script = ExtResource("1_rpqav")
 
 [node name="ThrusterSound" type="AudioStreamPlayer2D" parent="Movement" unique_id=813879107]
 stream = ExtResource("3_52ee3")
-parameters/looping = false
+parameters/looping = true
 
 [node name="Weapon" type="Node2D" parent="." unique_id=71186060 groups=["bullets"]]
 script = ExtResource("3_dewec")

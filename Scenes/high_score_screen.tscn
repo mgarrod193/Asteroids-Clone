@@ -71,16 +71,19 @@ split_offset = 43
 
 [node name="PosLabel" type="Label" parent="Panel/VSplitContainer/HighScore1" unique_id=1906869808]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.83137256, 0.6862745, 0.21568628, 1)
 theme_override_fonts/font = ExtResource("1_reng8")
 text = "1."
 
 [node name="NameLabel" type="Label" parent="Panel/VSplitContainer/HighScore1" unique_id=1542607224]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.83137256, 0.6862745, 0.21568628, 1)
 theme_override_fonts/font = ExtResource("1_reng8")
 text = "Name"
 
 [node name="ScoreLabel" type="Label" parent="Panel/VSplitContainer/HighScore1" unique_id=1463249809]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.83137256, 0.6862745, 0.21568628, 1)
 theme_override_fonts/font = ExtResource("1_reng8")
 text = "Score"
 horizontal_alignment = 2
@@ -93,16 +96,19 @@ split_offset = 43
 
 [node name="PosLabel" type="Label" parent="Panel/VSplitContainer/HighScore2" unique_id=1058559861]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("1_reng8")
 text = "2."
 
 [node name="NameLabel" type="Label" parent="Panel/VSplitContainer/HighScore2" unique_id=1665561492]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("1_reng8")
 text = "Name"
 
 [node name="ScoreLabel" type="Label" parent="Panel/VSplitContainer/HighScore2" unique_id=1963728988]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("1_reng8")
 text = "Score"
 horizontal_alignment = 2
@@ -115,16 +121,19 @@ split_offset = 43
 
 [node name="PosLabel" type="Label" parent="Panel/VSplitContainer/HighScore3" unique_id=391274583]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8039216, 0.49803922, 0.19607843, 1)
 theme_override_fonts/font = ExtResource("1_reng8")
 text = "3."
 
 [node name="NameLabel" type="Label" parent="Panel/VSplitContainer/HighScore3" unique_id=1162973985]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8039216, 0.49803922, 0.19607843, 1)
 theme_override_fonts/font = ExtResource("1_reng8")
 text = "Name"
 
 [node name="ScoreLabel" type="Label" parent="Panel/VSplitContainer/HighScore3" unique_id=158423171]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8039216, 0.49803922, 0.19607843, 1)
 theme_override_fonts/font = ExtResource("1_reng8")
 text = "Score"
 horizontal_alignment = 2
