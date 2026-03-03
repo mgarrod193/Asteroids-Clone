@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bvnm8gs542etm"]
 
-[ext_resource type="Script" uid="uid://4bnvm1utjomc" path="res://Scripts/menus.gd" id="1_goel8"]
+[ext_resource type="Script" uid="uid://4bnvm1utjomc" path="res://Scripts/UI/menus.gd" id="1_goel8"]
 [ext_resource type="FontFile" uid="uid://cqiwgykpr5onr" path="res://Art/Text/neatpixels-standard.ttf" id="2_sqhkm"]
 
 [node name="Menus" type="CanvasLayer" unique_id=1719554753]

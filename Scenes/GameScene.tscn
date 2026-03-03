@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dl1j22ajun46l" path="res://Audio/moodmode-8-bit-arcade-mode-158814.mp3" id="14_7rq2r"]
 [ext_resource type="AudioStream" uid="uid://ifypgp7w1eaw" path="res://Audio/freesound_community-medium-explosion-40472.mp3" id="15_124qp"]
 [ext_resource type="PackedScene" uid="uid://c3axh4b8q2ggg" path="res://Scenes/high_score_screen.tscn" id="15_ry528"]
+[ext_resource type="PackedScene" uid="uid://e67b14mcms7v" path="res://Scenes/enter_name.tscn" id="18_yhlfj"]
 
 [sub_resource type="Curve2D" id="Curve2D_2wl7v"]
 _data = {
@@ -66,5 +67,8 @@ parameters/looping = true
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="." unique_id=342907386]
 stream = ExtResource("15_124qp")
+
+[node name="EnterName" parent="." unique_id=1232746422 instance=ExtResource("18_yhlfj")]
+visible = false
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]

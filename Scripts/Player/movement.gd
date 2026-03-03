@@ -24,6 +24,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if player.can_move:
 		_player_movement(delta)
+	else:
+		thruster_sound.stop()
 
 #called every frame
 func _process(_delta: float) -> void:

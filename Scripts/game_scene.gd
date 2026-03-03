@@ -10,8 +10,8 @@ const max_asteroid_velocity := 90.0
 
 #variables for game state
 var lives := 3 
-var score := 0
-var high_score:int
+var curr_score := 0
+var high_curr_score:int
 var cur_wave := 0
 var game_started := false
 
@@ -19,6 +19,7 @@ var game_started := false
 @onready var hud := $HUD 
 @onready var menu := $Menus
 @onready var high_score_panel := $HighScoreScreen
+@onready var enter_name_panel := $EnterName
 @onready var player := $Player
 @onready var starting_pos = $StartingPos.position
 @onready var explosion_sound := $ExplosionSound
@@ -28,7 +29,6 @@ var game_started := false
 func _ready() -> void:
 	disable_player()
 	hud.hide()
-	high_score = Global.high_score
 	_spawn_wave(menu_wave)
 
 func _process(delta: float) -> void:
@@ -37,17 +37,17 @@ func _process(delta: float) -> void:
 			cur_wave += 1
 		_spawn_wave(waves[cur_wave])
 
-#called when play button pressed sets up initial game scene, lives and score
+#called when play button pressed sets up initial game scene, lives and curr_score
 func start_game():
 	hud.show()
 	
 	#reset variables
 	lives = 3
-	score = 0
+	curr_score = 0
 	cur_wave = 0
 	
 	#update hud values
-	hud.reset_lives_and_score(lives, score)
+	hud.reset_lives_and_score(lives, curr_score)
 	
 	#remove pre-existing asteroids
 	get_tree().call_group("Asteroids", "queue_free")
@@ -96,15 +96,15 @@ func _on_player_hit() -> void:
 	else:
 		game_over()
 
-#increase score by asteroid destroyed score value and updates hud
-func asteroid_destroyed(scoreincrease: int, asteroid_pos: Vector2):
+#increase curr_score by asteroid destroyed curr_score value and updates hud
+func asteroid_destroyed(curr_scoreincrease: int, asteroid_pos: Vector2):
 	var explosion_effect = explosion_pfx.instantiate()
 	explosion_effect.position = asteroid_pos
 	explosion_effect.emitting = true
 	add_child(explosion_effect)
 	
-	score += scoreincrease
-	hud.update_score(score)
+	curr_score += curr_scoreincrease
+	hud.update_score(curr_score)
 	explosion_sound.play()
 
 #used too enable player controls, reset position and show
@@ -122,15 +122,17 @@ func disable_player():
 
 #called when player runs out of lives, hides player and displays game menu
 func game_over():
+	Global.score = curr_score
 	game_started = false
 	disable_player()
 	get_tree().call_group("Asteroids", "queue_free")
 	hud.hide()
-	menu.update_menu_message("Score: " + str(score),"You Lose!")
-	menu.show()
+	menu.update_menu_message("score: " + str(curr_score),"Play again?")
+	enter_name_panel.show()
 
 func go_to_high_score_screen():
 	menu.hide()
+	high_score_panel.refresh_boards()
 	high_score_panel.show()
 
 func back_to_menu():

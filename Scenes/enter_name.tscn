@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://e67b14mcms7v"]
+
+[ext_resource type="Script" uid="uid://bfsgcsfbhj2fq" path="res://Scripts/UI/enter_name.gd" id="1_6ay1b"]
+[ext_resource type="FontFile" uid="uid://cqiwgykpr5onr" path="res://Art/Text/neatpixels-standard.ttf" id="1_jsano"]
+
+[node name="EnterName" type="CanvasLayer" unique_id=1232746422]
+script = ExtResource("1_6ay1b")
+
+[node name="Panel" type="Panel" parent="." unique_id=1450322805]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.875
+offset_top = -59.0
+offset_right = 135.875
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1268117431]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -39.0
+offset_right = 108.5
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.0045466)
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=601474027]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 5
+
+[node name="NameText" type="Label" parent="Panel/VBoxContainer/HBoxContainer" unique_id=765747629]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jsano")
+text = "Name:"
+
+[node name="EnterName" type="LineEdit" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1301705298]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_jsano")
+placeholder_text = "Enter Name"
+max_length = 7
+
+[node name="SubmitButton" type="Button" parent="Panel/VBoxContainer" unique_id=525298119]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_jsano")
+text = "Submit"
+
+[connection signal="pressed" from="Panel/VBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]

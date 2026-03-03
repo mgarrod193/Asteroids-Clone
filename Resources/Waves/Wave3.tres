@@ -5,3 +5,5 @@
 [resource]
 script = ExtResource("1_4ucac")
 amount_to_spawn = 5
+min_asteroid_velocity = 40.0
+max_asteroid_velocity = 100.0

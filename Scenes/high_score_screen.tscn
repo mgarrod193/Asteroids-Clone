@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://c3axh4b8q2ggg"]
 
-[ext_resource type="Script" uid="uid://bsg8rkojdjjxk" path="res://Scripts/high_score_screen.gd" id="1_0r65x"]
+[ext_resource type="Script" uid="uid://bsg8rkojdjjxk" path="res://Scripts/UI/high_score_screen.gd" id="1_0r65x"]
 [ext_resource type="FontFile" uid="uid://cqiwgykpr5onr" path="res://Art/Text/neatpixels-standard.ttf" id="1_reng8"]
 
-[node name="HighScoreScreen" type="CanvasLayer" unique_id=2011539330]
+[node name="HighScoreScreen" type="CanvasLayer" unique_id=2011539330 node_paths=PackedStringArray("player_names_label", "player_scores_label")]
 script = ExtResource("1_0r65x")
+player_names_label = [NodePath("Panel/VSplitContainer/HighScore1/NameLabel"), NodePath("Panel/VSplitContainer/HighScore2/NameLabel"), NodePath("Panel/VSplitContainer/HighScore3/NameLabel"), NodePath("Panel/VSplitContainer/HighScore4/NameLabel"), NodePath("Panel/VSplitContainer/HighScore5/NameLabel"), NodePath("Panel/VSplitContainer/HighScore6/NameLabel"), NodePath("Panel/VSplitContainer/HighScore7/NameLabel")]
+player_scores_label = [NodePath("Panel/VSplitContainer/HighScore1/ScoreLabel"), NodePath("Panel/VSplitContainer/HighScore2/ScoreLabel"), NodePath("Panel/VSplitContainer/HighScore3/ScoreLabel"), NodePath("Panel/VSplitContainer/HighScore4/ScoreLabel"), NodePath("Panel/VSplitContainer/HighScore5/ScoreLabel"), NodePath("Panel/VSplitContainer/HighScore6/ScoreLabel"), NodePath("Panel/VSplitContainer/HighScore7/ScoreLabel")]
 
 [node name="Panel" type="Panel" parent="." unique_id=1048792069]
 anchors_preset = 15
