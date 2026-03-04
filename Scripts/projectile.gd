@@ -25,6 +25,7 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body: Node2D) -> void:
+	#detects collision with asteroid
 	if body.is_in_group("Asteroids"):
 		body.Destroyed()
 		queue_free()

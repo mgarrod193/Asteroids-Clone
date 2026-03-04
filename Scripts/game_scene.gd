@@ -5,10 +5,7 @@ extends Node
 @export var waves: Array[wavesData]
 @export var menu_wave: wavesData
 
-const min_asteroid_velocity := 30.0
-const max_asteroid_velocity := 90.0
-
-#variables for game state
+#variables for game status
 var lives := 3 
 var curr_score := 0
 var high_curr_score:int
@@ -31,6 +28,7 @@ func _ready() -> void:
 	hud.hide()
 	_spawn_wave(menu_wave)
 
+#called every frame
 func _process(delta: float) -> void:
 	if game_started && get_tree().get_node_count_in_group("Asteroids") == 0:
 		if cur_wave < waves.size()-1:
@@ -78,7 +76,7 @@ func _spawn_wave(wave: wavesData) -> void:
 		asteroid.rotation = direction
 	
 		#gives asteroid speed
-		var velocity = Vector2(randf_range(min_asteroid_velocity, max_asteroid_velocity), 0.0)
+		var velocity = Vector2(randf_range(wave.min_asteroid_velocity, wave.max_asteroid_velocity), 0.0)
 		asteroid.linear_velocity = velocity.rotated(direction)
 	
 		asteroid.score = 10
@@ -115,6 +113,7 @@ func enable_player():
 	player.show()
 	
 
+#used to deactivate player and stop collisions
 func disable_player():
 	player.can_move = false
 	player.is_invulnerable = true

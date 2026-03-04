@@ -9,8 +9,8 @@ var min_angular_velocity := -0.8
 var max_angular_veloctiy := 0.8
 
 #variables for asteroid speed
-var min_asteroid_velocity := 10.0
-var max_asteroid_velocity := 75.0
+var min_asteroid_velocity := 40.0
+var max_asteroid_velocity := 100.0
 
 var score
  
@@ -21,12 +21,6 @@ func _ready() -> void:
 
 func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	_screen_wrap()
-
-#sets the scale of the asteroid
-func set_new_scale(new_scale: Vector2):
-	$Sprite2D.scale = new_scale
-	$CollisionShape2D.scale = new_scale
-	
 
 # Gets visible screen size allows player to screen wrap
 func _screen_wrap():
